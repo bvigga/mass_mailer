@@ -1,8 +1,26 @@
 [package]
 name = "mass_mailer"
 version = "0.1.0"
+authors = ["Bernard Vigga <bvigga@spancorp.net>"]
 edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+
+[[bin]]
+path = "src/main.rs"
+name = "mass_mailer"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+actix-web = "4"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde = { version = "1", features = ["derive"] }
+
+
+
+# Used exclusively when running tests
+[dev-dependencies]
+reqwest = "0.11"
